@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Never Too Young™ | Founding West Coast Cohort | INK & IMPACT™</title>
+  <meta name="description" content="We're inviting 12 young people ages 7–11 to become the Founding Authors of The Never Too Young™ Collection. Every selected student becomes a professionally published author. Limited enrollment. Applications open now.">
+  <meta property="og:title" content="Never Too Young™ | Founding West Coast Cohort | INK & IMPACT™">
+  <meta property="og:description" content="Every young life has a story. Some stories deserve to inspire the world. 12 spots. Ages 7–11. Apply now.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/elevate360collective/inkandimpact/main/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:   #080808;
+      --black2:  #0c0c0c;
+      --black3:  #121212;
+      --purple:  #534AB7;
+      --purple-l:#7F77DD;
+      --pdim:    rgba(83,74,183,0.12);
+      --pborder: rgba(83,74,183,0.25);
+      --gold:    #C9A84C;
+      --gold-l:  #D4B050;
+      --gdim:    rgba(201,168,76,0.08);
+      --gborder: rgba(201,168,76,0.22);
+      --w:       #ffffff;
+      --w80:     rgba(255,255,255,0.80);
+      --w60:     rgba(255,255,255,0.60);
+      --w40:     rgba(255,255,255,0.40);
+      --w20:     rgba(255,255,255,0.20);
+      --w10:     rgba(255,255,255,0.10);
+      --w05:     rgba(255,255,255,0.05);
+      --border:  rgba(255,255,255,0.07);
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
+      --ease:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--w);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: 0.10s; }
+    .reveal.d2 { transition-delay: 0.20s; }
+    .reveal.d3 { transition-delay: 0.30s; }
+    .reveal.d4 { transition-delay: 0.40s; }
+    .reveal.d5 { transition-delay: 0.50s; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 4rem;
+      background: transparent;
+      transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+      border-bottom: 0.5px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(24px);
+      border-bottom-color: var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 3px; }
+    .nav-logo  { font-family: var(--serif); font-size: 18px; font-weight: 500; letter-spacing: 0.06em; color: var(--w); line-height: 1; }
+    .nav-sub   { font-size: 9px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; font-family: var(--sans); font-weight: 500; }
+    .nav-r { display: flex; align-items: center; gap: 14px; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--sans); font-weight: 500; letter-spacing: 0.02em;
+      border-radius: 8px; cursor: pointer; text-decoration: none;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-sm   { padding: 10px 20px; font-size: 13px; }
+    .btn-md   { padding: 14px 30px; font-size: 14px; }
+    .btn-lg   { padding: 18px 42px; font-size: 16px; font-weight: 600; }
+
+    .btn-gold {
+      background: var(--gold); color: var(--black); border: none;
+    }
+    .btn-gold:hover { background: var(--gold-l); box-shadow: 0 12px 40px rgba(201,168,76,0.35); }
+
+    .btn-ghost {
+      background: transparent; color: var(--w);
+      border: 1px solid var(--w20);
+    }
+    .btn-ghost:hover { border-color: var(--w60); background: var(--w05); }
+
+    .btn-purple {
+      background: var(--purple); color: var(--w); border: none;
+    }
+    .btn-purple:hover { background: #4238a0; box-shadow: 0 8px 28px rgba(83,74,183,0.35); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /*
+     * ══════════════════════════════════════════════════════════
+     * HERO IMAGE — INSERT INSTRUCTIONS
+     * ══════════════════════════════════════════════════════════
+     * To activate the hero image:
+     *
+     * 1. Upload your image to GitHub repo as: hero-founding-cohort.jpg
+     *    (or any filename you choose)
+     *
+     * 2. In .hero-image below, replace the background comment with:
+     *    background-image: url('https://raw.githubusercontent.com/
+     *      elevate360collective/inkandimpact/main/hero-founding-cohort.jpg');
+     *
+     * IMAGE VISION:
+     *    - Diverse children ages 7–11 already living interesting lives
+     *    - Athletes, performers, creators, innovators
+     *    - Children positioned toward the RIGHT 60% of frame
+     *    - Left 35–40% intentionally open for text overlay
+     *    - Cinematic golden-hour or dramatic studio light
+     *    - Dark, premium, NOT a classroom or generic stock photo
+     *
+     * The gradient overlay below is calibrated for this layout.
+     * ══════════════════════════════════════════════════════════
+     */
+    .hero-image {
+      position: absolute; inset: 0;
+      /* background-image: url('hero-founding-cohort.jpg'); */
+      background-size: cover;
+      background-position: center right;
+      background-color: #0a0a14; /* fallback until image is added */
+      /* Subtle depth gradient — remove if image handles depth */
+      background-image: linear-gradient(135deg, #0d0b1e 0%, #0c0e1c 40%, #09090f 100%);
+    }
+
+    /* Left-heavy gradient overlay — text safe zone on left, image visible on right */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(
+          to right,
+          rgba(8,8,8,0.92) 0%,
+          rgba(8,8,8,0.82) 30%,
+          rgba(8,8,8,0.55) 50%,
+          rgba(8,8,8,0.20) 70%,
+          rgba(8,8,8,0.08) 100%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(8,8,8,0.30) 0%,
+          transparent 20%,
+          transparent 80%,
+          rgba(8,8,8,0.60) 100%
+        );
+    }
+
+    /* Edge vignette */
+    .hero-vignette {
+      position: absolute; inset: 0;
+      box-shadow: inset 0 0 120px rgba(8,8,8,0.5);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative; z-index: 10;
+      padding: 0 0 0 10%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-family: var(--sans);
+      margin-bottom: 1.75rem;
+      display: block;
+      animation: fadeUp 0.8s var(--ease) 0.1s both;
+    }
+
+    .hero-nty {
+      font-family: var(--serif);
+      font-size: clamp(72px, 10vw, 130px);
+      color: var(--w);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+      display: block;
+      animation: fadeUp 0.85s var(--ease) 0.2s both;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.8vw, 34px);
+      color: var(--w60);
+      line-height: 1.35;
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+      animation: fadeUp 0.85s var(--ease) 0.3s both;
+    }
+    .hero-tagline em { color: var(--w); font-style: italic; }
+
+    .hero-body {
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: var(--w60);
+      line-height: 1.85;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.85s var(--ease) 0.4s both;
+    }
+    .hero-body strong { color: var(--w80); font-weight: 500; }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      animation: fadeUp 0.85s var(--ease) 0.5s both;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      animation: fadeIn 1s 1.2s both;
+    }
+    .hero-scroll-hint span {
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      color: var(--w20);
+      text-transform: uppercase;
+      font-family: var(--sans);
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--w20), transparent);
+    }
+
+    /* ── FOUNDING BAR ── */
+    .founding-bar {
+      padding: 1.75rem 4rem;
+      background: var(--black2);
+      border-bottom: 0.5px solid var(--border);
+      overflow-x: auto;
+    }
+    .founding-bar-inner {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 0;
+    }
+    .fb-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 0 2.5rem;
+      border-right: 0.5px solid var(--border);
+      flex-shrink: 0;
+    }
+    .fb-item:last-child { border-right: none; }
+    .fb-val   { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--w); letter-spacing: 0.01em; }
+    .fb-label { font-size: 9px; letter-spacing: 0.16em; color: var(--w40); text-transform: uppercase; font-family: var(--sans); }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 9rem 4rem; border-bottom: 0.5px solid var(--border); }
+    .section-alt { background: var(--black2); }
+    .section-dark { background: var(--black3); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-center { text-align: center; }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.20em;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-family: var(--sans);
+      margin-bottom: 1.25rem;
+      display: block;
+      color: var(--purple-l);
+    }
+    .eyebrow.gold { color: var(--gold); }
+
+    .s-title {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+      color: var(--w);
+    }
+    .s-title em { font-style: italic; color: var(--gold); }
+    .s-title.purple em { color: var(--purple-l); }
+
+    .s-body {
+      font-size: 16px;
+      color: var(--w60);
+      line-height: 1.9;
+      max-width: 620px;
+    }
+
+    /* ── DIFFERENTIATOR ── */
+    .diff-lead {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin-bottom: 3.5rem;
+      max-width: 700px;
+    }
+    .diff-lead em { font-style: italic; color: var(--gold); }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .diff-card {
+      border-radius: 16px;
+      padding: 2.75rem 2.5rem;
+      border: 0.5px solid;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .diff-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(255,255,255,0.03) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .diff-card:hover { transform: translateY(-6px); }
+    .diff-card.gold-card { background: var(--gdim); border-color: var(--gborder); }
+    .diff-card.gold-card:hover { box-shadow: 0 20px 60px rgba(201,168,76,0.12); }
+    .diff-card.purple-card { background: var(--pdim); border-color: var(--pborder); }
+    .diff-card.purple-card:hover { box-shadow: 0 20px 60px rgba(83,74,183,0.15); }
+
+    .diff-card-eye {
+      font-size: 9px; letter-spacing: 0.18em; font-weight: 600;
+      text-transform: uppercase; font-family: var(--sans);
+      margin-bottom: 1.25rem; display: block;
+    }
+    .gold-card .diff-card-eye { color: var(--gold); }
+    .purple-card .diff-card-eye { color: var(--purple-l); }
+
+    .diff-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; font-size: 22px;
+    }
+    .gold-card .diff-card-icon { background: rgba(201,168,76,0.12); }
+    .purple-card .diff-card-icon { background: rgba(83,74,183,0.15); }
+
+    .diff-card-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 400;
+      color: var(--w);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .diff-card-desc { font-size: 14px; color: var(--w60); line-height: 1.75; }
+    .diff-footer {
+      font-family: var(--serif);
+      font-size: clamp(16px, 2vw, 21px);
+      color: var(--w40);
+      text-align: center;
+      margin-top: 2.5rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ── SIGNATURE ── */
+    .signature-section {
+      padding: 12rem 4rem;
+      border-bottom: 0.5px solid var(--border);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .signature-section::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .signature-text {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5.5vw, 72px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--w);
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .signature-text em { font-style: italic; color: var(--gold); }
+
+    /* ── WHO WE'RE LOOKING FOR — SPLIT LAYOUT ── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .split.reverse { }
+    .split-text { }
+    .split-visual {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--black3);
+      border: 0.5px solid var(--border);
+    }
+    /*
+     * IMAGE 2 — "Does Your Child Have A Story Worth Sharing?"
+     * File: img-stories.jpg
+     * Vision: Diverse children ages 7-11 naturally engaged in different passions.
+     * Athlete, musician, artist, robotics kid, scientist, reader.
+     * Editorial photography. Not posed. Cinematic and authentic.
+     * To activate: add background-image: url('img-stories.jpg');
+     *              background-size: cover; background-position: center;
+     */
+    .split-visual-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--w10); letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: var(--sans);
+      text-align: center; line-height: 2; padding: 2rem;
+    }
+    .split-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.4) 0%, transparent 50%);
+    }
+
+    .looking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .looking-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 15px;
+      color: var(--w80);
+      line-height: 1.65;
+      font-family: var(--sans);
+    }
+    .looking-icon {
+      font-size: 19px;
+      flex-shrink: 0;
+      width: 30px;
+      margin-top: 1px;
+    }
+    .looking-close {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2vw, 22px);
+      color: var(--w60);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ── IMAGINE MOMENT ── */
+    .imagine-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .imagine-line { font-size: 18px; color: var(--w60); line-height: 1.9; margin-bottom: 1rem; font-family: var(--sans); }
+    .imagine-line.hl { color: var(--w); font-weight: 500; font-size: 20px; }
+    .imagine-rule { width: 48px; height: 1px; background: var(--gold); margin: 3rem auto; }
+    .imagine-close { font-family: var(--serif); font-size: clamp(22px, 2.8vw, 32px); color: var(--gold); font-style: italic; line-height: 1.45; }
+
+    /* ── TIMELINE ── */
+    .tl-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 740px;
+      margin: 4rem auto 0;
+      position: relative;
+    }
+    .tl-row::before {
+      content: '';
+      position: absolute;
+      top: 27px; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: linear-gradient(to right, var(--pborder), var(--border), var(--pborder));
+    }
+    .tl-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      position: relative;
+      z-index: 1;
+      padding: 0 1rem;
+    }
+    .tl-circle {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--black);
+      border: 1px solid var(--pborder);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .tl-item:hover .tl-circle {
+      border-color: var(--gold);
+      box-shadow: 0 0 24px rgba(201,168,76,0.18);
+    }
+    .tl-week { font-size: 9px; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase; font-family: var(--sans); font-weight: 600; }
+    .tl-title { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--w); text-align: center; line-height: 1.2; }
+
+    /* ── LEAVE WITH GRID ── */
+    .leave-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 3.5rem;
+    }
+    .leave-card {
+      background: var(--w05);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .leave-card:hover {
+      border-color: var(--pborder);
+      background: var(--pdim);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(83,74,183,0.1);
+    }
+    .leave-card.gold-card {
+      background: var(--gdim);
+      border-color: var(--gborder);
+    }
+    .leave-card.gold-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 16px 40px rgba(201,168,76,0.1);
+    }
+    .leave-icon { font-size: 24px; margin-bottom: 1rem; display: block; }
+    .leave-title { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--w); margin-bottom: 6px; }
+    .leave-desc { font-size: 13px; color: var(--w60); line-height: 1.65; }
+
+    /* ── ANTHOLOGY — SPLIT LAYOUT ── */
+    .anthology-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .anthology-book {
+      position: relative;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--black3);
+      border: 0.5px solid var(--gborder);
+      display: flex; align-items: center; justify-content: center;
+    }
+    /*
+     * IMAGE 3 — "The Never Too Young™ Collection" book mockup
+     * File: img-book-mockup.jpg
+     * Vision: Premium hardcover book standing upright. Elegant gold foil on cover.
+     *         Dark background. Luxury publishing quality.
+     *         You already have bookmockup.jpg — use that or upgrade later.
+     * To activate: set background-image: url('bookmockup.jpg');
+     *              background-size: cover; background-position: center;
+     */
+    .anthology-book-placeholder {
+      font-size: 10px; color: var(--w10); letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: var(--sans);
+      text-align: center; line-height: 2; padding: 2rem;
+    }
+    .anthology-book-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .anthology-intro { font-family: var(--serif); font-size: clamp(14px, 1.6vw, 18px); color: var(--gold); font-style: italic; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: block; }
+    .anthology-title { font-family: var(--serif); font-size: clamp(48px, 7vw, 88px); font-weight: 300; line-height: 0.9; letter-spacing: -0.02em; color: var(--w); margin-bottom: 0.75rem; font-style: italic; }
+    .anthology-vol { font-family: var(--serif); font-size: clamp(14px, 1.8vw, 20px); color: var(--gold); display: block; letter-spacing: 0.06em; margin-bottom: 2rem; }
+    .anthology-body { font-size: 16px; color: var(--w60); line-height: 1.85; margin-bottom: 1.25rem; }
+    .anthology-note { font-size: 13px; color: var(--w40); font-style: italic; font-family: var(--serif); line-height: 1.65; margin-bottom: 2.5rem; }
+
+    /* ── PARTNERS ── */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 4rem;
+    }
+    .partner-card {
+      background: var(--w05);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 2.75rem 2.25rem;
+      transition: border-color 0.3s, transform 0.3s var(--ease);
+    }
+    .partner-card:hover { border-color: var(--pborder); transform: translateY(-4px); }
+    .partner-logo-area {
+      width: 100%; height: 56px;
+      background: var(--w05); border: 0.5px dashed var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; color: var(--w20); letter-spacing: 0.12em;
+      text-transform: uppercase; font-family: var(--sans);
+      margin-bottom: 1.75rem;
+    }
+    /* Replace .partner-logo-area with <img src="..." alt="..." /> when logos are ready */
+    .partner-role  { font-size: 9px; letter-spacing: 0.18em; color: var(--purple-l); font-weight: 600; text-transform: uppercase; font-family: var(--sans); margin-bottom: 0.6rem; display: block; }
+    .partner-name  { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--w); margin-bottom: 0.9rem; display: block; line-height: 1.2; }
+    .partner-desc  { font-size: 13px; color: var(--w60); line-height: 1.7; }
+    .partners-trust { font-size: 14px; color: var(--w40); text-align: center; margin-top: 3rem; font-style: italic; font-family: var(--serif); line-height: 1.7; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 4rem auto 0; }
+    details { border-bottom: 0.5px solid var(--border); padding: 1.6rem 0; }
+    details:first-child { border-top: 0.5px solid var(--border); }
+    summary {
+      font-size: 16px; font-weight: 400; color: var(--w);
+      cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1.5rem; font-family: var(--sans);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+'; font-family: var(--serif); font-size: 24px; font-style: italic;
+      color: var(--gold); flex-shrink: 0; transition: transform 0.25s var(--ease);
+      line-height: 1;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-a { font-size: 15px; color: var(--w60); line-height: 1.8; margin-top: 1rem; padding-right: 2rem; max-width: 640px; }
+
+    /* ── FINAL CTA ── */
+    .final-section {
+      padding: 12rem 4rem;
+      border-bottom: 0.5px solid var(--border);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(83,74,183,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .final-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .final-pre  { font-family: var(--serif); font-size: clamp(18px, 2.2vw, 24px); color: var(--w40); font-style: italic; margin-bottom: 2rem; display: block; line-height: 1.5; }
+    .final-h    { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 68px); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+    .final-h em { font-style: italic; color: var(--gold); }
+    .final-body { font-size: 17px; color: var(--w60); line-height: 1.85; margin-bottom: 3.5rem; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 3.5rem;
+    }
+    .step-card {
+      background: var(--w05);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .step-card:hover { border-color: var(--pborder); background: var(--pdim); }
+    .step-num  { font-family: var(--serif); font-size: 40px; color: var(--purple-l); font-style: italic; line-height: 1; margin-bottom: 0.75rem; display: block; font-weight: 300; }
+    .step-text { font-size: 14px; color: var(--w60); line-height: 1.65; font-family: var(--sans); }
+    .final-note { font-size: 13px; color: var(--w40); margin-top: 1.25rem; font-family: var(--sans); }
+
+    /*
+     * IMAGE 4 — Final CTA emotional image
+     * File: img-parent-child.jpg
+     * Vision: Parent and child reading their published book together.
+     *         Warm sunlight. Natural smiles. Quiet pride. No posing.
+     *         This should emotionally close the page.
+     * To activate: uncomment .final-image-wrap and add background-image.
+     */
+    /* .final-image-wrap {
+      max-width: 600px; margin: 4rem auto 0;
+      border-radius: 20px; overflow: hidden;
+      aspect-ratio: 16/9;
+      background-image: url('img-parent-child.jpg');
+      background-size: cover; background-position: center;
+    } */
+
+    /* ── SECONDARY CTA ── */
+    .secondary-section {
+      padding: 7rem 4rem;
+      background: var(--black2);
+      border-bottom: 0.5px solid var(--border);
+      text-align: center;
+    }
+    .secondary-inner { max-width: 560px; margin: 0 auto; }
+    .secondary-h    { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; margin-bottom: 1.25rem; letter-spacing: -0.01em; line-height: 1.15; }
+    .secondary-h em { font-style: italic; color: var(--purple-l); }
+    .secondary-sub  { font-size: 16px; color: var(--w60); line-height: 1.85; margin-bottom: 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 4rem;
+      border-top: 0.5px solid var(--border);
+      background: var(--black2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-logos { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 0.5rem; }
+    .footer-logo-area {
+      height: 32px; width: 96px;
+      background: var(--w05); border: 0.5px dashed var(--border);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; color: var(--w20); letter-spacing: 0.10em; text-transform: uppercase;
+    }
+    .footer-brand { font-family: var(--serif); font-size: 15px; color: var(--w40); line-height: 1.7; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 12px; color: var(--w40); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--w); }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.14); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .split, .anthology-split { grid-template-columns: 1fr; gap: 3rem; }
+      .split-visual { aspect-ratio: 16/9; }
+      .anthology-book { aspect-ratio: 16/9; }
+      .anthology-title { font-size: clamp(48px, 10vw, 72px); }
+      .diff-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links-desktop { display: none; }
+      .hero-content { padding: 0 0 0 6%; max-width: 90%; }
+      .hero-nty { font-size: clamp(60px, 16vw, 90px); }
+      .section { padding: 6rem 1.5rem; }
+      .section.signature-section { padding: 8rem 1.5rem; }
+      .section.final-section { padding: 8rem 1.5rem; }
+      .section.secondary-section { padding: 5rem 1.5rem; }
+      footer { padding: 3rem 1.5rem; }
+      .founding-bar { padding: 1.25rem 1rem; }
+      .founding-bar-inner { justify-content: flex-start; }
+      .fb-item { padding: 0 1.25rem; }
+      .tl-row { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+      .tl-row::before { display: none; }
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-content { padding: 0 0 0 5%; }
+      .hero-nty { font-size: 54px; }
+      .hero-tagline { font-size: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      nav { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="https://inkandimpact.netlify.app/" class="nav-brand">
+    <span class="nav-logo">INK & IMPACT™</span>
+    <span class="nav-sub">Never Too Young™ · Founding Cohort</span>
+  </a>
+  <div class="nav-r">
+    <a href="https://inkandimpact.netlify.app/" class="btn btn-ghost btn-sm nav-links-desktop">Future Cohorts →</a>
+    <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-purple btn-sm">Apply Now</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero" aria-label="Hero">
+
+  <!--
+    HERO IMAGE ACTIVATION
+    Upload file to GitHub: hero-founding-cohort.jpg
+    Then uncomment and update the line below inside .hero-image style:
+    background-image: url('https://raw.githubusercontent.com/elevate360collective/inkandimpact/main/hero-founding-cohort.jpg');
+    Also remove the fallback gradient from .hero-image in CSS.
+  -->
+  <div class="hero-image" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Founding West Coast Cohort &nbsp;·&nbsp; Limited to 12 Students &nbsp;·&nbsp; October 26</span>
+    <span class="hero-nty">Never Too Young™</span>
+    <p class="hero-tagline">
+      Every Young Life Has A Story.<br>
+      <em>Some Stories Deserve To Inspire The World.</em>
+    </p>
+    <p class="hero-body">
+      We're inviting 12 young people ages 7–11 to become the Founding Authors of The Never Too Young™ Collection. Whether your child has achieved something remarkable, overcome incredible challenges, or simply has a meaningful story worth sharing — we'll help them transform that story into something that lasts forever.<br><br>
+      <strong>Every selected student becomes a professionally published author.</strong>
+    </p>
+    <div class="hero-ctas">
+      <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-gold btn-lg">Apply for the Founding Cohort</a>
+      <a href="https://inkandimpact.netlify.app/" class="btn btn-ghost btn-md">Is your child 7–19? Explore Future Cohorts</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+
+</section>
+
+<!-- ══ FOUNDING BAR ══ -->
+<div class="founding-bar" aria-label="Cohort at a glance">
+  <div class="founding-bar-inner">
+    <div class="fb-item"><span class="fb-val">Oct 26</span><span class="fb-label">Launch Date</span></div>
+    <div class="fb-item"><span class="fb-val">West Coast</span><span class="fb-label">Region</span></div>
+    <div class="fb-item"><span class="fb-val">Ages 7–11</span><span class="fb-label">Age Group</span></div>
+    <div class="fb-item"><span class="fb-val">12 Only</span><span class="fb-label">Enrollment</span></div>
+    <div class="fb-item"><span class="fb-val">4 Weeks</span><span class="fb-label">Duration</span></div>
+    <div class="fb-item"><span class="fb-val">Cohort 001</span><span class="fb-label">Never Too Young™</span></div>
+  </div>
+</div>
+
+<!-- ══ DIFFERENTIATOR ══ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <h2 class="diff-lead reveal">
+      Every Student Becomes<br><em>A Published Author.</em>
+    </h2>
+    <div class="diff-grid">
+      <div class="diff-card gold-card reveal d1">
+        <span class="diff-card-eye">Every founding student receives</span>
+        <div class="diff-card-icon">📖</div>
+        <p class="diff-card-title">The Never Too Young™ Collection</p>
+        <p class="diff-card-desc">Every selected student contributes to the inaugural Never Too Young™ Collection — a professionally published anthology celebrating twelve extraordinary young lives. Full author credit. Author biography. Worldwide distribution. A keepsake families will treasure for generations.</p>
+      </div>
+      <div class="diff-card purple-card reveal d2">
+        <span class="diff-card-eye">Plus — two students selected for</span>
+        <div class="diff-card-icon">⭐</div>
+        <p class="diff-card-title">Individual Solo Books</p>
+        <p class="diff-card-desc">Two students will be selected to publish their own individual solo book — a standalone professionally published title with their name alone on the cover, their story told entirely on their own terms. Three professionally published works from one incredible founding cohort.</p>
+      </div>
+    </div>
+    <p class="diff-footer reveal d3">Three professionally published works from one incredible cohort. That's Never Too Young™.</p>
+  </div>
+</section>
+
+<!-- ══ SIGNATURE STATEMENT ══ -->
+<section class="section signature-section">
+  <p class="signature-text reveal">
+    We Don't Just Help Young People Write Books.<br>
+    <em>We Help Preserve Stories That<br>Deserve To Be Remembered.</em>
+  </p>
+</section>
+
+<!-- ══ WHO WE'RE LOOKING FOR — SPLIT ══ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="split">
+      <div class="split-text">
+        <span class="eyebrow gold reveal">The twelve</span>
+        <h2 class="s-title reveal d1">Does Your Child Have A Story<br><em>Worth Sharing?</em></h2>
+        <p class="s-body reveal d2">We're looking for young people who are already writing incredible stories with their lives.</p>
+        <div class="looking-list reveal d3">
+          <div class="looking-item"><span class="looking-icon">🏁</span><span>Competes in racing, athletics, or sports with dedication and heart.</span></div>
+          <div class="looking-item"><span class="looking-icon">🎭</span><span>Performs in theater, film, dance, or music.</span></div>
+          <div class="looking-item"><span class="looking-icon">💡</span><span>Builds, invents, creates, or solves problems.</span></div>
+          <div class="looking-item"><span class="looking-icon">📚</span><span>Excels academically or has a deep love of learning and ideas.</span></div>
+          <div class="looking-item"><span class="looking-icon">🌎</span><span>Makes a difference in their community through kindness or service.</span></div>
+          <div class="looking-item"><span class="looking-icon">❤️</span><span>Has overcome challenges with courage and resilience.</span></div>
+          <div class="looking-item"><span class="looking-icon">✨</span><span>Or simply has a story that could inspire someone else.</span></div>
+        </div>
+        <p class="looking-close reveal d4">Whether your child has excelled in sports, the arts, academics, entrepreneurship, or community service — or has shown courage, resilience, curiosity, or determination — every meaningful story deserves to be shared.</p>
+      </div>
+      <div class="split-visual reveal d2">
+        <!--
+          IMAGE 2 — img-stories.jpg
+          Vision: Diverse children ages 7–11 naturally engaged in different passions.
+          Athlete, musician, artist, robotics kid, scientist, reader.
+          Editorial photography. Not posed. Cinematic and authentic.
+          To activate: add style="background-image:url('img-stories.jpg');background-size:cover;background-position:center;" to .split-visual
+        -->
+        <div class="split-visual-placeholder">[ img-stories.jpg<br>Diverse young creators living interesting lives<br>Editorial · Cinematic · Not posed ]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IMAGINE THIS MOMENT ══ -->
+<section class="section">
+  <div class="imagine-inner">
+    <span class="eyebrow gold reveal" style="display:block;text-align:center;margin-bottom:2rem">The moment we're building toward</span>
+    <h2 class="s-title reveal" style="text-align:center;max-width:600px;margin:0 auto 3rem">Imagine This <em>Moment...</em></h2>
+    <p class="imagine-line reveal">Picture your child opening a package.</p>
+    <p class="imagine-line reveal d1">Inside is a professionally published book.</p>
+    <p class="imagine-line hl reveal d2">Their name printed inside. Their story preserved forever.</p>
+    <div class="imagine-rule reveal d3"></div>
+    <p class="imagine-line reveal d3">Now imagine sharing that creation with family, friends — and someday, even their own children.</p>
+    <p class="imagine-close reveal d4">That's why Never Too Young™ exists.</p>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="section section-alt">
+  <div class="section-inner section-center">
+    <span class="eyebrow reveal">The journey</span>
+    <h2 class="s-title reveal d1" style="max-width:540px;margin:0 auto">Four Weeks.<br><em>One Extraordinary Outcome.</em></h2>
+    <div class="tl-row reveal d2">
+      <div class="tl-item">
+        <div class="tl-circle">✍️</div>
+        <span class="tl-week">Week 1</span>
+        <p class="tl-title">Discover</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle">📝</div>
+        <span class="tl-week">Week 2</span>
+        <p class="tl-title">Create</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle">✨</div>
+        <span class="tl-week">Week 3</span>
+        <p class="tl-title">Publish</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-circle">🎉</div>
+        <span class="tl-week">Week 4</span>
+        <p class="tl-title">Celebrate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT THEY LEAVE WITH ══ -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow reveal">The outcome</span>
+    <h2 class="s-title reveal d1">What Your Child Will <em>Leave With</em></h2>
+    <p class="s-body reveal d2">The story is the heart. The transformation is the purpose. The published work is the proof.</p>
+    <div class="leave-grid reveal d2">
+      <div class="leave-card"><span class="leave-icon">💪</span><p class="leave-title">Greater Confidence</p><p class="leave-desc">The kind that only comes from finishing something meaningful.</p></div>
+      <div class="leave-card"><span class="leave-icon">🎯</span><p class="leave-title">Leadership Skills</p><p class="leave-desc">Decision-making, discipline, and the courage to follow through.</p></div>
+      <div class="leave-card"><span class="leave-icon">✨</span><p class="leave-title">Creative Thinking</p><p class="leave-desc">The ability to take an idea and build it into something real.</p></div>
+      <div class="leave-card"><span class="leave-icon">🗣️</span><p class="leave-title">Communication Skills</p><p class="leave-desc">How to organize thoughts, share a voice, and move people with a story.</p></div>
+      <div class="leave-card"><span class="leave-icon">🏆</span><p class="leave-title">A Goal They Finished</p><p class="leave-desc">Proof — at age 7 to 11 — that they can commit to and complete something hard.</p></div>
+      <div class="leave-card"><span class="leave-icon">🤝</span><p class="leave-title">New Friendships</p><p class="leave-desc">Twelve young creators who built something meaningful together.</p></div>
+      <div class="leave-card gold-card"><span class="leave-icon">📖</span><p class="leave-title">A Professionally Published Work</p><p class="leave-desc">Edited, designed, ISBN-registered, and distributed worldwide. Their name in print. Forever.</p></div>
+      <div class="leave-card gold-card"><span class="leave-icon">🌟</span><p class="leave-title">Founding Cohort Membership</p><p class="leave-desc">The first twelve. A distinction that belongs to them — always.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TUITION ══ -->
+<section class="section" style="background:var(--black2)">
+  <div class="section-inner section-center">
+    <span class="eyebrow gold reveal">Founding Cohort Tuition</span>
+    <h2 class="s-title reveal d1" style="max-width:600px;margin:0 auto">An Investment in a Story<br><em>That Lasts a Lifetime.</em></h2>
+
+    <!-- PRICING CARD -->
+    <div class="reveal d2" style="max-width:560px;margin:4rem auto 0">
+      <div style="
+        background:linear-gradient(160deg,rgba(201,168,76,0.06) 0%,rgba(8,8,8,0) 60%);
+        border:0.5px solid var(--gborder);
+        border-radius:24px;
+        padding:3.5rem 3rem;
+        text-align:center;
+        box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 0.5px rgba(201,168,76,0.12) inset;
+        position:relative;
+        overflow:hidden;
+      ">
+        <!-- Subtle radial glow top center -->
+        <div style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:300px;height:200px;background:radial-gradient(ellipse,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none"></div>
+
+        <span style="font-size:10px;letter-spacing:0.22em;color:var(--gold);font-weight:600;text-transform:uppercase;font-family:var(--sans);display:block;margin-bottom:2rem">Tuition</span>
+
+        <div style="font-family:var(--serif);font-size:clamp(72px,12vw,108px);font-weight:300;color:var(--w);line-height:0.9;letter-spacing:-0.02em;margin-bottom:0.5rem">$597</div>
+        <p style="font-size:14px;color:var(--w40);font-family:var(--sans);margin-bottom:0.75rem;letter-spacing:0.04em">per student</p>
+
+        <div style="display:flex;align-items:center;gap:1.25rem;justify-content:center;margin-bottom:2.5rem">
+          <div style="height:0.5px;flex:1;background:var(--border)"></div>
+          <span style="font-size:12px;color:var(--w20);font-family:var(--sans);letter-spacing:0.08em;text-transform:uppercase">or</span>
+          <div style="height:0.5px;flex:1;background:var(--border)"></div>
+        </div>
+
+        <p style="font-family:var(--serif);font-size:clamp(20px,3vw,28px);color:var(--w80);font-style:italic;margin-bottom:2.5rem;line-height:1.3">3 monthly payments of <span style="color:var(--gold)">$199</span></p>
+
+        <!-- Divider -->
+        <div style="height:0.5px;background:var(--border);margin-bottom:2.5rem"></div>
+
+        <!-- Included -->
+        <div style="text-align:left;display:flex;flex-direction:column;gap:1rem">
+          <span style="font-size:10px;letter-spacing:0.18em;color:var(--w40);font-weight:600;text-transform:uppercase;font-family:var(--sans);display:block;margin-bottom:0.25rem">Included</span>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Weekly live coaching sessions</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Leadership &amp; storytelling curriculum</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Professional writing guidance</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Professional editing and publishing support</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Professionally published in The Never Too Young™ Collection</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Worldwide book distribution</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Opportunity to be considered for one of two solo publishing opportunities</span></div>
+          <div style="display:flex;align-items:flex-start;gap:14px"><span style="color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px">✓</span><span style="font-size:14px;color:var(--w80);font-family:var(--sans);line-height:1.55">Official Author Celebration</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Founding cohort note -->
+    <div class="reveal d3" style="max-width:480px;margin:2rem auto 0;background:var(--w05);border:0.5px solid var(--gborder);border-radius:14px;padding:2rem 2.25rem;text-align:left">
+      <p style="font-size:10px;letter-spacing:0.18em;color:var(--gold);font-weight:600;text-transform:uppercase;font-family:var(--sans);margin-bottom:0.75rem">Founding Cohort Pricing</p>
+      <p style="font-size:14px;color:var(--w60);line-height:1.8;font-family:var(--sans)">As a member of our inaugural Founding Cohort, your family is joining the very beginning of the Never Too Young™ Collection. Future cohorts may have different tuition as the program grows.</p>
+    </div>
+
+    <!-- Reassurance row -->
+    <div class="reveal d3" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin:2.5rem auto 0;max-width:560px">
+      <span style="font-size:13px;color:var(--w40);font-family:var(--sans);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✔</span> Secure Online Enrollment</span>
+      <span style="font-size:13px;color:var(--w40);font-family:var(--sans);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✔</span> Flexible Payment Options</span>
+      <span style="font-size:13px;color:var(--w40);font-family:var(--sans);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✔</span> Limited to 12 Students</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal d4" style="margin-top:3rem">
+      <a href="https://tally.so/r/7RrQ2z" target="_blank" class="btn btn-gold btn-lg">Apply for the Founding Cohort</a>
+      <p style="font-size:13px;color:var(--w40);font-family:var(--sans);margin-top:1.25rem;line-height:1.7">Applications are reviewed individually.<br>Selection is based on overall fit, commitment, and story potential — not financial status.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ ANTHOLOGY — SPLIT ══ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="anthology-split">
+      <div class="anthology-book reveal">
+        <!--
+          IMAGE 3 — img-book-mockup.jpg
+          Vision: Premium hardcover book standing upright.
+          Elegant gold foil title on cover. Dark background.
+          Luxury publishing quality.
+          bookmockup.jpg is already in your GitHub repo — use it now:
+          To activate: add style="background-image:url('https://raw.githubusercontent.com/elevate360collective/inkandimpact/main/bookmockup.jpg');background-size:cover;background-position:center;" to .anthology-book
+        -->
+        <div class="anthology-book-placeholder">[ img-book-mockup.jpg<br>Never Too Young™<br>Premium hardcover · Gold foil · Dark background ]</div>
+        <div class="anthology-book-glow"></div>
+      </div>
+      <div class="reveal d2">
+        <span class="anthology-intro">Introducing</span>
+        <h2 class="anthology-title">Never Too Young™</h2>
+        <span class="anthology-vol">The Collection &nbsp;·&nbsp; Volume One</span>
+        <p class="anthology-body">The inaugural collection celebrating extraordinary young lives, inspiring stories, and unforgettable journeys. Every Founding Cohort student becomes part of this professionally published keepsake — a first edition that will always hold a special place in the history of INK & IMPACT™.</p>
+        <p class="anthology-note">Select eligible students may also be considered for individual publishing opportunities based on manuscript development and program guidelines. This is explained to every family before enrollment.</p>
+        <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-gold btn-md">Apply for the Founding Cohort</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARTNERS ══ -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow reveal">Our publishing partners</span>
+    <h2 class="s-title reveal d1">The Team <em>Behind Every Story</em></h2>
+    <div class="partners-grid">
+      <div class="partner-card reveal d1">
+        <div class="partner-logo-area">[ Elevate 360 Logo ]</div>
+        <span class="partner-role">Created by</span>
+        <span class="partner-name">Elevate 360 Collective</span>
+        <p class="partner-desc">Leadership curriculum, coaching, and student development. The organization behind every INK & IMPACT™ cohort and the Never Too Young™ Collection.</p>
+      </div>
+      <div class="partner-card reveal d2">
+        <div class="partner-logo-area">[ Veritas Publishing Logo ]</div>
+        <span class="partner-role">Publishing by</span>
+        <span class="partner-name">Veritas Publishing House</span>
+        <p class="partner-desc">Professional editing, design, ISBN registration, and worldwide distribution. Every completed manuscript becomes a real, professionally published work.</p>
+      </div>
+      <div class="partner-card reveal d3">
+        <div class="partner-logo-area">[ DragonFly Fund Logo ]</div>
+        <span class="partner-role">Supported by</span>
+        <span class="partner-name">DragonFly Young Writers Fund</span>
+        <p class="partner-desc">Supporting and celebrating the next generation of young authors. Making professional publishing accessible to every young voice, everywhere.</p>
+      </div>
+    </div>
+    <p class="partners-trust reveal d4">Every completed manuscript follows the same professional publishing process used for commercially published books.</p>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <span class="eyebrow reveal" style="display:block;text-align:center">Common questions</span>
+    <h2 class="s-title reveal d1" style="text-align:center;max-width:560px;margin:0 auto">What Parents <em>Ask</em></h2>
+    <div class="faq-list reveal d2">
+      <details><summary>Does my child need writing experience?</summary><p class="faq-a">Not at all. The Founding Cohort welcomes young creators at every experience level. What matters is curiosity, imagination, and a story worth telling. Our coaches provide the structure and support to do the rest.</p></details>
+      <details><summary>How much time is required each week?</summary><p class="faq-a">Approximately 2–2.5 hours per week, including live coaching sessions and guided writing time. The program is designed to work within a family's existing schedule without feeling overwhelming.</p></details>
+      <details><summary>What if my child has never written before?</summary><p class="faq-a">That's completely fine. Many of our most compelling contributors are beginners. Our coaches meet students exactly where they are and guide them forward — at their own pace and in their own voice.</p></details>
+      <details><summary>How are students selected?</summary><p class="faq-a">Each application is reviewed individually. With enrollment limited to 12 students, we look for curiosity, a meaningful story, and a genuine desire to create — not prior writing experience or academic achievement.</p></details>
+      <details><summary>Is parent involvement required?</summary><p class="faq-a">Yes — and encouraged. For students ages 7–11, parent or guardian involvement is essential throughout the application and enrollment process. You'll receive regular updates and clear communication at every stage.</p></details>
+      <details><summary>How does publishing work?</summary><p class="faq-a">All publishing is managed through our partner Veritas Publishing House — including editing, design, ISBN registration, and worldwide distribution. Families are not responsible for any part of the publishing process.</p></details>
+      <details><summary>Will my child receive individual coaching?</summary><p class="faq-a">Yes. With only 12 students in the Founding Cohort, every participant receives personalized attention throughout. This is an intimate, high-touch creative experience — not a large group class.</p></details>
+      <details><summary>What happens after the Founding Cohort?</summary><p class="faq-a">Founding Cohort students become permanent members of the INK & IMPACT™ inaugural class — a distinction that belongs to them always. As the program grows, additional alumni opportunities will be available.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="section final-section">
+  <div class="final-inner">
+    <span class="final-pre reveal">Some stories only get one chance to be told at the beginning.</span>
+    <h2 class="final-h reveal d1">
+      The Founding Never Too Young™<br>
+      Cohort Will Always Be<br>
+      <em>The First.</em>
+    </h2>
+    <p class="final-body reveal d2">If your child has a story worth sharing, we'd love to hear it. Applications are reviewed individually — because every student in the Founding Cohort deserves a highly personalized experience.</p>
+
+    <p style="font-size:10px;letter-spacing:.18em;color:var(--w40);text-transform:uppercase;font-family:var(--sans);margin-bottom:1.75rem;font-weight:500" class="reveal d2">What Happens After You Apply</p>
+    <div class="steps-grid reveal d3">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <p class="step-text">Submit your child's interest form. Takes about 10 minutes.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <p class="step-text">We review the application and reach out to schedule a brief family conversation.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <p class="step-text">If it's a good fit, your family receives a formal invitation to join the Never Too Young™ Founding Cohort.</p>
+      </div>
+    </div>
+
+    <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-gold btn-lg reveal d4">Apply for the Founding West Coast Cohort</a>
+    <p class="final-note reveal d4">Applying does not require payment &nbsp;·&nbsp; Registration closes October 19</p>
+
+    <!--
+      IMAGE 4 — img-parent-child.jpg
+      Vision: Parent and child reading their published book together.
+      Warm sunlight. Natural smiles. Quiet pride. No posing.
+      To activate: uncomment the block below and update the src.
+    -->
+    <!--
+    <div style="max-width:600px;margin:5rem auto 0;border-radius:20px;overflow:hidden;aspect-ratio:16/9;">
+      <img src="img-parent-child.jpg" alt="Parent and child sharing their published book"
+           style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- ══ SECONDARY CTA ══ -->
+<section class="section secondary-section">
+  <div class="secondary-inner">
+    <h2 class="secondary-h reveal">Is Your Child Between <em>7–19?</em></h2>
+    <p class="secondary-sub reveal d1">The Never Too Young™ Founding Cohort is specifically designed for students ages 7–11. The Founding Cohort is just the beginning. Discover our complete leadership and publishing experience, future themes, and upcoming opportunities for every age.</p>
+    <a href="https://inkandimpact.netlify.app/" class="btn btn-purple btn-md reveal d2">Explore All Programs & Upcoming Cohorts</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logos">
+    <!-- Replace each .footer-logo-area with <img src="..." alt="..." /> when logos are ready -->
+    <div class="footer-logo-area">Elevate 360</div>
+    <div class="footer-logo-area">Veritas</div>
+    <div class="footer-logo-area">DragonFly</div>
+  </div>
+  <p class="footer-brand">
+    INK & IMPACT™ — Never Too Young™ Founding West Coast Cohort<br>
+    <span style="font-size:13px;font-family:var(--sans)">A leadership and publishing experience by Elevate 360 Collective</span>
+  </p>
+  <div class="footer-links">
+    <a href="mailto:info@elevate360collective.com">info@elevate360collective.com</a>
+    <a href="https://www.elevate360collective.com" target="_blank">elevate360collective.com</a>
+    <a href="https://inkandimpact.netlify.app/">Full Program</a>
+    <a href="#">Privacy</a>
+  </div>
+  <p class="footer-copy">© 2026 Elevate 360 Collective. All rights reserved. INK & IMPACT™ and Never Too Young™ are trademarks of Elevate 360 Collective.</p>
+</footer>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => revealObs.observe(el));
+</script>
+
+</body>
+</html>
