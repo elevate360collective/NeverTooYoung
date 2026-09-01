@@ -66,16 +66,16 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: sticky; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.25rem 4rem;
-      background: transparent;
-      transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
-      border-bottom: 0.5px solid transparent;
-    }
-    nav.scrolled {
       background: rgba(8,8,8,0.96);
       backdrop-filter: blur(24px);
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.98);
       border-bottom-color: var(--border);
     }
     .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 3px; }
@@ -116,11 +116,11 @@
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
-      min-height: 700px;
+      min-height: 100svh;
       display: flex;
       align-items: center;
       overflow: hidden;
+      padding: 6rem 0 5rem;
     }
 
     /*
@@ -149,12 +149,12 @@
      */
     .hero-image {
       position: absolute; inset: 0;
-      /* background-image: url('hero-founding-cohort.jpg'); */
+      background-image: url('https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/hero-founding-cohort.jpg');
       background-size: cover;
       background-position: center right;
-      background-color: #0a0a14; /* fallback until image is added */
-      /* Subtle depth gradient — remove if image handles depth */
-      background-image: linear-gradient(135deg, #0d0b1e 0%, #0c0e1c 40%, #09090f 100%);
+      
+      
+      
     }
 
     /* Left-heavy gradient overlay — text safe zone on left, image visible on right */
@@ -783,6 +783,7 @@
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links-desktop { display: none; }
+      .hero { padding: 4rem 0 3rem; }
       .hero-content { padding: 0 0 0 6%; max-width: 90%; }
       .hero-nty { font-size: clamp(60px, 16vw, 90px); }
       .section { padding: 6rem 1.5rem; }
@@ -818,7 +819,7 @@
   </a>
   <div class="nav-r">
     <a href="https://inkandimpact.netlify.app/" class="btn btn-ghost btn-sm nav-links-desktop">Future Cohorts →</a>
-    <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-purple btn-sm">Apply Now</a>
+    <a href="https://tally.so/r/7RrQ2z" target="_blank" class="btn btn-purple btn-sm">Apply Now</a>
   </div>
 </nav>
 
@@ -832,7 +833,7 @@
     background-image: url('https://raw.githubusercontent.com/elevate360collective/inkandimpact/main/hero-founding-cohort.jpg');
     Also remove the fallback gradient from .hero-image in CSS.
   -->
-  <div class="hero-image" aria-hidden="true"></div>
+  <div class="hero-image" aria-hidden="true" style="background-image:url('https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/hero-founding-cohort.jpg');background-size:cover;background-position:center;background-color:#0a0a14"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-vignette" aria-hidden="true"></div>
 
@@ -848,7 +849,7 @@
       <strong>Every selected student becomes a professionally published author.</strong>
     </p>
     <div class="hero-ctas">
-      <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-gold btn-lg">Apply for the Founding Cohort</a>
+      <a href="https://tally.so/r/7RrQ2z" target="_blank" class="btn btn-gold btn-lg">Apply for the Founding Cohort</a>
       <a href="https://inkandimpact.netlify.app/" class="btn btn-ghost btn-md">Is your child 7–19? Explore Future Cohorts</a>
     </div>
   </div>
@@ -923,15 +924,15 @@
         </div>
         <p class="looking-close reveal d4">Whether your child has excelled in sports, the arts, academics, entrepreneurship, or community service — or has shown courage, resilience, curiosity, or determination — every meaningful story deserves to be shared.</p>
       </div>
-      <div class="split-visual reveal d2">
+      <div class="split-visual reveal d2" style="background-image:url('https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/img-stories.jpg');background-size:cover;background-position:center">
         <!--
           IMAGE 2 — img-stories.jpg
           Vision: Diverse children ages 7–11 naturally engaged in different passions.
           Athlete, musician, artist, robotics kid, scientist, reader.
           Editorial photography. Not posed. Cinematic and authentic.
-          To activate: add style="background-image:url('img-stories.jpg');background-size:cover;background-position:center;" to .split-visual
+          
         -->
-        <div class="split-visual-placeholder">[ img-stories.jpg<br>Diverse young creators living interesting lives<br>Editorial · Cinematic · Not posed ]</div>
+        <div class="split-visual-placeholder" style="display:none"></div>
       </div>
     </div>
   </div>
@@ -1078,16 +1079,7 @@
 <section class="section section-alt">
   <div class="section-inner">
     <div class="anthology-split">
-      <div class="anthology-book reveal">
-        <!--
-          IMAGE 3 — img-book-mockup.jpg
-          Vision: Premium hardcover book standing upright.
-          Elegant gold foil title on cover. Dark background.
-          Luxury publishing quality.
-          bookmockup.jpg is already in your GitHub repo — use it now:
-          To activate: add style="background-image:url('https://raw.githubusercontent.com/elevate360collective/inkandimpact/main/bookmockup.jpg');background-size:cover;background-position:center;" to .anthology-book
-        -->
-        <div class="anthology-book-placeholder">[ img-book-mockup.jpg<br>Never Too Young™<br>Premium hardcover · Gold foil · Dark background ]</div>
+      <div class="anthology-book reveal" style="background-image:url('https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/bookmockup.jpg');background-size:cover;background-position:center">
         <div class="anthology-book-glow"></div>
       </div>
       <div class="reveal d2">
@@ -1096,7 +1088,7 @@
         <span class="anthology-vol">The Collection &nbsp;·&nbsp; Volume One</span>
         <p class="anthology-body">The inaugural collection celebrating extraordinary young lives, inspiring stories, and unforgettable journeys. Every Founding Cohort student becomes part of this professionally published keepsake — a first edition that will always hold a special place in the history of INK & IMPACT™.</p>
         <p class="anthology-note">Select eligible students may also be considered for individual publishing opportunities based on manuscript development and program guidelines. This is explained to every family before enrollment.</p>
-        <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-gold btn-md">Apply for the Founding Cohort</a>
+        <a href="https://tally.so/r/7RrQ2z" target="_blank" class="btn btn-gold btn-md">Apply for the Founding Cohort</a>
       </div>
     </div>
   </div>
@@ -1109,19 +1101,19 @@
     <h2 class="s-title reveal d1">The Team <em>Behind Every Story</em></h2>
     <div class="partners-grid">
       <div class="partner-card reveal d1">
-        <div class="partner-logo-area">[ Elevate 360 Logo ]</div>
+        <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/elevate_360_logo.jpg" alt="Elevate 360 Collective" style="width:100%;height:56px;object-fit:contain;border-radius:8px;margin-bottom:1.75rem">
         <span class="partner-role">Created by</span>
         <span class="partner-name">Elevate 360 Collective</span>
         <p class="partner-desc">Leadership curriculum, coaching, and student development. The organization behind every INK & IMPACT™ cohort and the Never Too Young™ Collection.</p>
       </div>
       <div class="partner-card reveal d2">
-        <div class="partner-logo-area">[ Veritas Publishing Logo ]</div>
+        <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/Veritas_Logo.png" alt="Veritas Publishing House" style="width:100%;height:56px;object-fit:contain;border-radius:8px;margin-bottom:1.75rem">
         <span class="partner-role">Publishing by</span>
         <span class="partner-name">Veritas Publishing House</span>
         <p class="partner-desc">Professional editing, design, ISBN registration, and worldwide distribution. Every completed manuscript becomes a real, professionally published work.</p>
       </div>
       <div class="partner-card reveal d3">
-        <div class="partner-logo-area">[ DragonFly Fund Logo ]</div>
+        <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/DragonFly.png" alt="DragonFly Young Writers Fund" style="width:100%;height:56px;object-fit:contain;border-radius:8px;margin-bottom:1.75rem">
         <span class="partner-role">Supported by</span>
         <span class="partner-name">DragonFly Young Writers Fund</span>
         <p class="partner-desc">Supporting and celebrating the next generation of young authors. Making professional publishing accessible to every young voice, everywhere.</p>
@@ -1176,21 +1168,11 @@
       </div>
     </div>
 
-    <a href="https://tally.so/r/D4ALWp" target="_blank" class="btn btn-gold btn-lg reveal d4">Apply for the Founding West Coast Cohort</a>
+    <a href="https://tally.so/r/7RrQ2z" target="_blank" class="btn btn-gold btn-lg reveal d4">Apply for the Founding West Coast Cohort</a>
     <p class="final-note reveal d4">Applying does not require payment &nbsp;·&nbsp; Registration closes October 19</p>
-
-    <!--
-      IMAGE 4 — img-parent-child.jpg
-      Vision: Parent and child reading their published book together.
-      Warm sunlight. Natural smiles. Quiet pride. No posing.
-      To activate: uncomment the block below and update the src.
-    -->
-    <!--
-    <div style="max-width:600px;margin:5rem auto 0;border-radius:20px;overflow:hidden;aspect-ratio:16/9;">
-      <img src="img-parent-child.jpg" alt="Parent and child sharing their published book"
-           style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+    <div style="max-width:600px;margin:5rem auto 0;border-radius:20px;overflow:hidden;aspect-ratio:16/9;" class="reveal d4">
+      <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/img-parent-child.jpg" alt="Parent and child sharing their published Never Too Young book" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
     </div>
-    -->
   </div>
 </section>
 
@@ -1206,10 +1188,9 @@
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-logos">
-    <!-- Replace each .footer-logo-area with <img src="..." alt="..." /> when logos are ready -->
-    <div class="footer-logo-area">Elevate 360</div>
-    <div class="footer-logo-area">Veritas</div>
-    <div class="footer-logo-area">DragonFly</div>
+    <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/elevate_360_logo.jpg" alt="Elevate 360 Collective" style="height:40px;width:auto;object-fit:contain;opacity:0.7;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+    <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/Veritas_Logo.png" alt="Veritas Publishing House" style="height:40px;width:auto;object-fit:contain;opacity:0.7;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+    <img src="https://raw.githubusercontent.com/elevate360collective/NeverTooYoung/main/DragonFly.png" alt="DragonFly Young Writers Fund" style="height:40px;width:auto;object-fit:contain;opacity:0.7;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
   </div>
   <p class="footer-brand">
     INK & IMPACT™ — Never Too Young™ Founding West Coast Cohort<br>
@@ -1219,19 +1200,12 @@
     <a href="mailto:info@elevate360collective.com">info@elevate360collective.com</a>
     <a href="https://www.elevate360collective.com" target="_blank">elevate360collective.com</a>
     <a href="https://inkandimpact.netlify.app/">Full Program</a>
-    <a href="#">Privacy</a>
   </div>
   <p class="footer-copy">© 2026 Elevate 360 Collective. All rights reserved. INK & IMPACT™ and Never Too Young™ are trademarks of Elevate 360 Collective.</p>
 </footer>
 
 <!-- ══ SCRIPTS ══ -->
 <script>
-  // Nav scroll effect
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver(entries => {
